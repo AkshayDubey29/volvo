@@ -72,7 +72,7 @@ The `Dockerrun.aws.json` file is configured to pull the image from the public EC
     }
   ]
 }
-
+```
 ## Contributing
 
 We welcome suggestions for improving the app! If you'd like to contribute:
