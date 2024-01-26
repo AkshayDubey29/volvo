@@ -45,7 +45,6 @@ After the image has been successfully built, you can run the application with Do
 
 ```bash
 docker run -p 80:80 volvo-flask-app:latest
-
-
+```
 The application will then be accessible at http://localhost.
 
