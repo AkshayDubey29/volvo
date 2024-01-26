@@ -31,3 +31,21 @@ Before you begin, ensure you have the following:
    git clone https://github.com/your-username/volvo-flask-app.git
    cd volvo-flask-app
    ```
+## Build the Docker image
+
+To build the Docker image, run the following command in your terminal:
+
+```bash
+docker build -t volvo-flask-app:latest .
+```
+
+## Running the Application
+
+After the image has been successfully built, you can run the application with Docker using the following command:
+
+```bash
+docker run -p 80:80 volvo-flask-app:latest
+
+
+The application will then be accessible at http://localhost.
+
