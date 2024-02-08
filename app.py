@@ -48,9 +48,8 @@ def create_database_and_table():
     finally:
         conn.close()
 
-@app.before_first_request
-def initialize_database():
-    create_database_and_table()
+# Call this function directly to initialize the database
+create_database_and_table()
 
 @app.route('/admin')
 @auth.login_required
@@ -66,6 +65,7 @@ def admin():
 
 @app.route('/')
 def feedback_form():
+    # Feedback form HTML content with styles goes here
     feedback_form_html = """
     <!DOCTYPE html>
     <html lang="en">
@@ -169,7 +169,7 @@ def submit_feedback():
         conn.close()
     return redirect(url_for('feedback_form'))
 
-# Make sure to include your full FEEDBACK_FORM HTML content within the triple quotes above.
+# Replace the placeholder with the actual HTML content for FEEDBACK_FORM
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=80, debug=True)
