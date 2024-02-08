@@ -67,6 +67,7 @@ def admin():
 def feedback_form():
     # Feedback form HTML content with styles goes here
     feedback_form_html = """
+
     <!DOCTYPE html>
     <html lang="en">
     <head>
@@ -75,7 +76,7 @@ def feedback_form():
         <title>Feedback Form</title>
         <style>
             body {
-                font-family: Arial, sans-serif;
+                font-family: 'Arial', sans-serif;
                 background-color: #f4f4f4;
                 margin: 0;
                 padding: 0;
@@ -85,10 +86,12 @@ def feedback_form():
                 margin: 50px auto;
                 background: #fff;
                 padding: 20px;
-                box-shadow: 2px 5px 10px rgba(0,0,0,0.1);
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                border-radius: 8px;
             }
-            h2 {
+            h2, h4 {
                 text-align: center;
+                color: #333;
             }
             form {
                 display: flex;
@@ -96,23 +99,37 @@ def feedback_form():
             }
             label {
                 margin-top: 10px;
+                margin-bottom: 5px;
+                color: #333;
             }
             input[type=text], textarea {
                 padding: 10px;
                 margin-top: 5px;
                 border: 1px solid #ddd;
                 border-radius: 5px;
-            }
-            input[type=radio] {
-                margin-right: 5px;
+                font-size: 14px;
             }
             .radio-group {
                 display: flex;
-                align-items: center;
+                justify-content: space-between;
+                margin-top: 5px;
             }
             .radio-group label {
+                flex: 1;
                 margin-right: 20px;
-                margin-top: 0;
+                background: #f7f7f7;
+                border: 1px solid #ddd;
+                padding: 10px;
+                text-align: center;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+            .radio-group input[type="radio"] {
+                display: none;
+            }
+            .radio-group input[type="radio"]:checked + label {
+                background: #e9e9e9;
+                border-color: #ccc;
             }
             input[type=submit] {
                 padding: 10px 15px;
@@ -121,7 +138,8 @@ def feedback_form():
                 border-radius: 5px;
                 color: white;
                 cursor: pointer;
-                margin-top: 10px;
+                margin-top: 15px;
+                font-size: 16px;
             }
             input[type=submit]:hover {
                 background-color: #4cae4c;
@@ -130,23 +148,31 @@ def feedback_form():
     </head>
     <body>
         <div class="container">
-            <h2>Feedback on Platform Engineer Practical Test</h2>
+            <h2>Feedback Form</h2>
+            <h4>For Akshay Dubey, Engineering Manager Position</h4>
             <form action="/submit" method="post">
-                <label for="name">Name:</label>
+                <label for="name">Your Name:</label>
                 <input type="text" id="name" name="name" required>
                 
                 <label>Experience Rating:</label>
                 <div class="radio-group">
-                    <label><input type="radio" name="experience" value="excellent" required> Excellent</label>
-                    <label><input type="radio" name="experience" value="good"> Good</label>
-                    <label><input type="radio" name="experience" value="fair"> Fair</label>
-                    <label><input type="radio" name="experience" value="poor"> Poor</label>
+                    <input type="radio" id="excellent" name="experience" value="excellent" required>
+                    <label for="excellent">Excellent</label>
+                    
+                    <input type="radio" id="good" name="experience" value="good">
+                    <label for="good">Good</label>
+                    
+                    <input type="radio" id="fair" name="experience" value="fair">
+                    <label for="fair">Fair</label>
+                    
+                    <input type="radio" id="poor" name="experience" value="poor">
+                    <label for="poor">Poor</label>
                 </div>
                 
-                <label for="feedback">Feedback:</label>
+                <label for="feedback">Your Feedback:</label>
                 <textarea id="feedback" name="feedback" rows="4" cols="50" required></textarea>
                 
-                <input type="submit" value="Submit">
+                <input type="submit" value="Submit Feedback">
             </form>
         </div>
     </body>
